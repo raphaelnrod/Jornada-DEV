@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Random Colors</title>
+</head>
+<style>
+	.container {
+		display: flex;
+		justify-content: space-around;
+		width: 100vw;
+		height: auto;
+		padding: 20px;
+	}
+
+	.btn {
+		width: 100%;
+		height: auto;
+		display: flex;
+		justify-content: center;
+	}
+
+	.main {
+		display: block;
+		width: 50px;
+		height: 50px;
+		background-color: green;
+	}
+</style>
+
+<body>
+	<div class="container">
+		<div id="1" class="main"></div>
+		<div id="2" class="main"></div>
+		<div id="3" class="main"></div>
+		<div id="4" class="main"></div>
+		<div id="5" class="main"></div>
+		<div id="6" class="main"></div>
+		<div id="7" class="main"></div>
+		<div id="8" class="main"></div>
+		<div id="9" class="main"></div>
+		<div id="10" class="main"></div>
+	</div>
+	<div class="btn">
+		<button onclick="randomColorsSolid()" style="margin-right: 10px;">Mudar Cores Sólidas</button>
+		<button onclick="randomColorsLight()">Mudar Cores Claras</button>
+	</div>
+
+</body>
+<script>
+	var split = (str) => {
+		return str.split('');
+	}
+	var randomColorsSolid = () => {
+		for (let i = 1; i <= 10; i++) {
+			document.getElementById(i).style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+		}
+	}
+	var randomColorsLight = () => {
+		for (let i = 1; i <= 10; i++) {
+			document.getElementById(i).style.backgroundColor = colorsLight();
+		}
+	}
+	var colorsLight = () => {
+		var letters = "BCDEF".split("");
+		var color = "#";
+		for (var i = 0; i < 6; i++) {
+			color += letters[Math.floor(Math.random() * letters.length)];
+		}
+		return color;
+	}
+</script>
+
+</html>
