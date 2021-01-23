@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornada Dev</title>
+</head>
+
+<body>
+</body>
+<script>
+
+    function groupListBy(lista, propriedade) {
+        return lista.reduce((acc, obj) => {
+            let key = obj[propriedade];
+            if (!acc[key]) acc[key] = [];
+            acc[key].push(obj);
+            return acc;
+        }, {});
+    }
+
+    function sortListBy(lista, propriedade) {
+        return lista.map((value) => value)
+            .sort((a, b) => a[propriedade]
+                .localeCompare(b[propriedade]));
+    }
+
+    var cidades = [
+        { nome: 'Sao Paulo', uf: 'SP' },
+        { nome: 'Goiania', uf: 'GO' },
+        { nome: 'Uberlandia', uf: 'MG' },
+        { nome: 'Recife', uf: 'PE' },
+        { nome: 'Anápolis', uf: 'GO' },
+        { nome: 'Belo Horizonte', uf: 'MG' },
+        { nome: 'Campinas', uf: 'SP' },
+        { nome: 'Rio Verde', uf: 'GO' },
+        { nome: 'Valinhos', uf: 'SP' },
+        { nome: 'Ouro Preto', uf: 'MG' },
+        { nome: 'Caruaru', uf: 'PE' },
+        { nome: 'Pirenópolis', uf: 'GO' },
+        { nome: 'Guarulhos', uf: 'SP' },
+        { nome: 'Olinda', uf: 'PE' },
+        { nome: 'Sao Carlos', uf: 'SP' },
+        { nome: 'Uberaba', uf: 'MG' },
+    ]
+
+    console.log('Lista cidades', cidades);
+    console.log('Lista cidades agrupadas por UF', groupListBy(cidades, 'uf'));
+    console.log('Lista cidades ordenadas por nome', sortListBy(cidades, 'nome'));
+
+</script>
+
+</html>
